@@ -1,33 +1,20 @@
 #include<stdio.h>
+#define max 100
 int main()
 {
-	int M,N,i,j;
-	printf("\n\n\t\tPlease enter the size of matrix (m * n) : ");
-	scanf(" %d %d",&M,&N);
-	int A[M][N],B[N][M];
-	printf("\n\n\t\tPlease enter the elements of matrix in 2D format : ");
-	for(i=0;i<M;i++)
+	char a[max],occr;
+	int count=0,i=0;
+	printf("\n\n\t\tPlease enter any string : ");
+	fgets(a, sizeof(a), stdin);
+	printf("\n\n\t\tPlease enter the character whose occurence need to be checked : ");
+	scanf(" %c",&occr);
+	while(a[i]!='\0')
 	{
-		for(j=0;j<N;j++)
+		if(a[i]==occr)
 		{
-			scanf(" %d",&A[i][j]);
-		}
+			count++;
+		}i++;
 	}
-        for(i=0;i<M;i++)
-        {
-                for(j=0;j<N;j++)
-                {
-			B[j][i]=A[i][j];
-                }
-        }
-	printf("\n\n\t\tThe transpose of the above matrix is : ");
-        for(i=0;i<N;i++)
-        {
-		printf("\n\n\t\t");
-                for(j=0;j<M;j++)
-                {
-			printf(" %6d",B[i][j]);
-                }
-        }
-	printf("\n\n\n");return 0;
+	printf("\n\n\t\tThe character %c occured %d times in the string\n\n\n",occr,count);
+	return 0;
 }
